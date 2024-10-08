@@ -46,6 +46,16 @@
                 </div>
             @endif
         </div>
+        <div>
+            <x-input-label for="facebook_id" :value="__('Facebook ID')" />
+            <x-text-input id="facebook_id" name="facebook_id" type="text" class="mt-1 block w-full" :value="old('facebook_id', $user->facebook_id)" required autofocus autocomplete="name" />
+            <x-input-error class="mt-2" :messages="$errors->get('facebook_id')" />
+        </div>
+        <di v>
+            <x-input-label for="github_id" :value="__('Github ID')" />
+            <x-text-input id="github_id" name="github_id" type="text" class="mt-1 block w-full" :value="old('github_id', $user->github_id)" required autofocus autocomplete="name" />
+            <x-input-error class="mt-2" :messages="$errors->get('github_id')" />
+        </di>
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

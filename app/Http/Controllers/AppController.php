@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AppController extends Controller
 {
@@ -19,11 +20,25 @@ class AppController extends Controller
         return response("this is for logged in users",200);
     }
 
-    // custom login
-    public function login(){
+    //custom login
+    public function login(Request $request){
         $credential =[
-            'email'=>
-        ]
+            'email'=>"arif@gmail.com",
+            "password"=>"12345678"
+        ];
+        if(Auth::attempt($credential)){
+            return response("logged in",200);
+
+        }else{
+            return response("Not logged in",200);
+            
+        }
+
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
     }
 
 
